@@ -21,8 +21,11 @@ const TopBrands = () => {
     { name: 'iQOO', logo: <span style={{ fontWeight: 800, fontSize: '1.5rem', fontStyle: 'italic' }}>iQOO</span>, color: '#FF7D00' },
   ];
 
+  // Duplicate the brands array to create a seamless infinite loop
+  const marqueeBrands = [...brands, ...brands];
+
   return (
-    <section className="top-brands-section" style={{ padding: '120px 0', position: 'relative' }}>
+    <section className="top-brands-section" style={{ padding: '120px 0', position: 'relative', overflow: 'hidden' }}>
       
       {/* Subtle background glow */}
       <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '80%', height: '80%', background: 'radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 60%)', zIndex: 0, pointerEvents: 'none' }}></div>
@@ -38,28 +41,45 @@ const TopBrands = () => {
           <h2 className="brands-title" style={{ fontSize: '2rem', marginBottom: '16px' }}>FEATURED <span className="text-accent">BRANDS</span></h2>
           <p className="text-secondary text-lg" style={{ maxWidth: '600px', margin: '0 auto' }}>Experience the absolute pinnacle of smartphone technology from the world's most innovative companies.</p>
         </motion.div>
-        
-        <div style={{ 
-          display: 'grid', 
-          gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', 
-          gap: '24px' 
-        }}>
-          {brands.map((brand, idx) => (
-            <motion.div 
+      </div>
+
+      <div className="marquee-container relative z-10" style={{ 
+        width: '100%', 
+        overflow: 'hidden', 
+        padding: '20px 0',
+        display: 'flex',
+        maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)',
+        WebkitMaskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)'
+      }}>
+        <motion.div 
+          style={{ display: 'flex', gap: '24px', paddingLeft: '24px' }}
+          animate={{ x: [0, -3060] }} // 15 items * (180px width + 24px gap)
+          transition={{
+            x: {
+              repeat: Infinity,
+              repeatType: "loop",
+              duration: 25,
+              ease: "linear",
+            },
+          }}
+        >
+          {marqueeBrands.map((brand, idx) => (
+            <div 
               key={idx} 
               className="mockup-card brand-card" 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.05 }}
               style={{ 
+                minWidth: '180px',
                 padding: '32px 24px', 
                 display: 'flex', 
                 flexDirection: 'column', 
                 alignItems: 'center', 
                 justifyContent: 'center',
                 cursor: 'pointer',
-                '--brand-color': brand.color
+                '--brand-color': brand.color,
+                background: 'var(--bg-card)',
+                borderRadius: '16px',
+                border: '1px solid rgba(255, 255, 255, 0.05)',
+                transition: 'all 0.4s ease'
               }}
             >
               <div className="brand-logo-wrapper" style={{ 
@@ -70,10 +90,18 @@ const TopBrands = () => {
                 {brand.logo}
               </div>
               <span style={{ fontSize: '0.875rem', fontWeight: 600, color: 'var(--text-secondary)', transition: 'color 0.4s ease' }} className="brand-name-text">{brand.name}</span>
-            </motion.div>
+            </div>
           ))}
-        </div>
+        </motion.div>
       </div>
+
+      {/* Add specific CSS block for marquee math if needed */}
+      <style>{`
+        .marquee-container > div {
+          /* Fallback width calculation */
+          width: max-content;
+        }
+      `}</style>
     </section>
   );
 };

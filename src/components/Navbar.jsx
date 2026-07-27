@@ -10,29 +10,35 @@ const Navbar = () => {
   const { scrollY } = useScroll();
   
   // Transform background based on scroll
-  const background = useTransform(
+  const scrollBg = useTransform(
     scrollY,
     [0, 50],
     ['rgba(0, 0, 0, 0)', 'rgba(10, 10, 10, 0.7)']
   );
   
-  const backdropFilter = useTransform(
+  const scrollBlur = useTransform(
     scrollY,
     [0, 50],
     ['blur(0px)', 'blur(24px)']
   );
   
-  const border = useTransform(
+  const scrollBorder = useTransform(
     scrollY,
     [0, 50],
     ['1px solid rgba(255, 255, 255, 0)', '1px solid rgba(255, 255, 255, 0.08)']
   );
 
-  const boxShadow = useTransform(
+  const scrollShadow = useTransform(
     scrollY,
     [0, 50],
     ['0 0 0 rgba(0,0,0,0)', '0 10px 40px rgba(0, 0, 0, 0.5)']
   );
+
+  const isHome = location.pathname === '/';
+  const background = isHome ? scrollBg : 'rgba(10, 10, 10, 0.8)';
+  const backdropFilter = isHome ? scrollBlur : 'blur(24px)';
+  const border = isHome ? scrollBorder : '1px solid rgba(255, 255, 255, 0.08)';
+  const boxShadow = isHome ? scrollShadow : '0 10px 40px rgba(0, 0, 0, 0.5)';
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);

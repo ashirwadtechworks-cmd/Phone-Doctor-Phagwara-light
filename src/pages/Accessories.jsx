@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const accessories = [
   { id: 1, category: 'Audio', name: 'AirPods Pro (2nd Gen)', brand: 'Apple', price: '₹24,900', img: '🎧' },
@@ -10,6 +10,14 @@ const accessories = [
 ];
 
 const Accessories = () => {
+  const [filter, setFilter] = useState('All');
+
+  const filteredAccessories = accessories.filter(item => {
+    if (filter === 'All') return true;
+    if (filter === 'Power & Cables' && item.category === 'Power') return true;
+    return item.category === filter;
+  });
+
   return (
     <>
       <div className="page-wrapper">
@@ -21,16 +29,20 @@ const Accessories = () => {
             <p className="page-subtitle">Genuine accessories for every need.</p>
             
             <div className="flex-row justify-center gap-4 mt-8" style={{ flexWrap: 'wrap' }}>
-              <button className="btn-filter active">All</button>
-              <button className="btn-filter">Audio</button>
-              <button className="btn-filter">Wearables</button>
-              <button className="btn-filter">Power & Cables</button>
-              <button className="btn-filter">Protection</button>
+              {['All', 'Audio', 'Wearables', 'Power & Cables', 'Protection'].map(cat => (
+                <button 
+                  key={cat}
+                  className={`btn-filter ${filter === cat ? 'active' : ''}`}
+                  onClick={() => setFilter(cat)}
+                >
+                  {cat}
+                </button>
+              ))}
             </div>
           </div>
 
           <div className="grid-4">
-            {accessories.map((item) => (
+            {filteredAccessories.map((item) => (
               <div key={item.id} className="mockup-card p-6 flex-col justify-between" style={{ cursor: 'pointer' }}>
                 <div className="product-image-box mb-6">
                   <span style={{ fontSize: '4rem', transition: 'transform 0.3s' }}>{item.img}</span>
