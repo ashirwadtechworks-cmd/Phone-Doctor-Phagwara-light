@@ -11,31 +11,31 @@ const preOwnedProducts = [
 const PreOwned = () => {
   return (
     <>
-      <div className="pt-32 pb-16 min-h-screen bg-pure text-white">
+      <div className="page-wrapper" style={{ paddingTop: '80px' }}>
         
         {/* Header Section with Red Gradient */}
-        <div className="relative mb-16 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-accent/30 to-black pointer-events-none"></div>
-          <div className="container mx-auto px-4 py-16 relative z-10 border-y border-accent/20 bg-black/40 backdrop-blur-sm">
-            <div className="max-w-2xl">
-              <h1 className="text-4xl md:text-6xl font-bold mb-4 font-heading">
+        <div className="relative mb-16 overflow-hidden" style={{ background: 'rgba(0,0,0,0.4)', borderTop: '1px solid rgba(227,6,19,0.2)', borderBottom: '1px solid rgba(227,6,19,0.2)', padding: '64px 0' }}>
+          <div className="absolute z-0" style={{ inset: 0, background: 'linear-gradient(to right, rgba(227,6,19,0.2), transparent)' }}></div>
+          <div className="container relative z-10">
+            <div style={{ maxWidth: '700px' }}>
+              <h1 className="page-title-large font-heading font-bold mb-4">
                 CERTIFIED <span className="text-accent">PRE-OWNED</span>
               </h1>
-              <p className="text-xl text-gray-300 mb-8">
+              <p className="text-lg text-secondary mb-8">
                 Like New. Better Price. Rigorously tested devices backed by our quality guarantee.
               </p>
               
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div className="flex items-center gap-2 text-sm text-gray-400">
+              <div className="flex-responsive gap-6">
+                <div className="flex-row items-center gap-2 text-sm text-secondary">
                   <CheckCircle size={16} className="text-accent" /> 50-Point Check
                 </div>
-                <div className="flex items-center gap-2 text-sm text-gray-400">
+                <div className="flex-row items-center gap-2 text-sm text-secondary">
                   <Shield size={16} className="text-accent" /> Warranty Included
                 </div>
-                <div className="flex items-center gap-2 text-sm text-gray-400">
+                <div className="flex-row items-center gap-2 text-sm text-secondary">
                   <Battery size={16} className="text-accent" /> Verified Battery
                 </div>
-                <div className="flex items-center gap-2 text-sm text-gray-400">
+                <div className="flex-row items-center gap-2 text-sm text-secondary">
                   <Settings size={16} className="text-accent" /> Original Parts
                 </div>
               </div>
@@ -43,44 +43,45 @@ const PreOwned = () => {
           </div>
         </div>
 
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
+        <div className="container">
+          <div className="flex-responsive justify-between items-center mb-8 gap-4">
             <h2 className="text-2xl font-bold">Available Devices</h2>
-            <div className="relative w-full md:w-64">
+            <div className="relative w-full" style={{ maxWidth: '300px' }}>
               <input 
                 type="text" 
                 placeholder="Search models..." 
-                className="w-full bg-white/5 border border-white/10 rounded-full py-2 pl-10 pr-4 text-sm focus:outline-none focus:border-accent"
+                className="form-input"
+                style={{ paddingLeft: '40px', borderRadius: '99px' }}
               />
-              <Search size={16} className="absolute left-4 top-2.5 text-gray-400" />
+              <Search size={16} className="absolute text-secondary" style={{ left: '16px', top: '14px' }} />
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid-4">
             {preOwnedProducts.map(device => (
-              <div key={device.id} className="mockup-card p-5 relative overflow-hidden group">
-                <div className="absolute -right-4 -top-4 w-24 h-24 bg-accent/20 rounded-full blur-xl group-hover:bg-accent/40 transition-colors"></div>
+              <div key={device.id} className="mockup-card p-6 relative overflow-hidden" style={{ cursor: 'pointer' }}>
+                <div className="absolute" style={{ right: '-16px', top: '-16px', width: '100px', height: '100px', background: 'rgba(227,6,19,0.15)', borderRadius: '50%', filter: 'blur(20px)' }}></div>
                 
-                <div className="flex justify-between items-start mb-6 relative z-10">
-                  <span className={`text-xs font-bold px-2 py-1 rounded bg-white/10 ${device.condition === 'Like New' ? 'text-green-400' : 'text-gray-300'}`}>
+                <div className="flex-row justify-between items-center mb-6 relative z-10">
+                  <span style={{ fontSize: '0.75rem', fontWeight: 700, padding: '4px 8px', borderRadius: '4px', background: 'rgba(255,255,255,0.1)', color: device.condition === 'Like New' ? '#4ade80' : 'var(--text-secondary)' }}>
                     {device.condition}
                   </span>
-                  <span className="text-xs text-gray-400 flex items-center gap-1">
+                  <span className="flex-row items-center gap-2 text-xs text-secondary">
                     <Battery size={12} className="text-accent" /> {device.battery}
                   </span>
                 </div>
                 
-                <div className="h-32 flex items-center justify-center mb-4 relative z-10">
-                  <span className="text-6xl group-hover:scale-110 transition-transform">📱</span>
+                <div className="product-image-box mb-6" style={{ background: 'transparent', border: 'none', height: '120px' }}>
+                  <span style={{ fontSize: '4rem', transition: 'transform 0.3s' }}>📱</span>
                 </div>
                 
                 <div className="relative z-10">
                   <h3 className="font-bold text-lg">{device.name}</h3>
-                  <p className="text-sm text-gray-400 mb-4">{device.storage}</p>
+                  <p className="text-sm text-secondary mb-4">{device.storage}</p>
                   
-                  <div className="flex justify-between items-center pt-4 border-t border-white/10">
-                    <span className="font-bold text-xl text-white">{device.price}</span>
-                    <button className="text-xs font-bold text-accent hover:text-white transition-colors">VIEW DETAILS</button>
+                  <div className="flex-row justify-between items-center pt-4" style={{ borderTop: '1px solid rgba(255,255,255,0.1)' }}>
+                    <span className="font-bold text-xl text-primary">{device.price}</span>
+                    <span className="text-xs font-bold text-accent">VIEW DETAILS</span>
                   </div>
                 </div>
               </div>

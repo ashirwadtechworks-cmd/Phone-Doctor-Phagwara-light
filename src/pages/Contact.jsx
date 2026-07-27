@@ -12,49 +12,49 @@ const Instagram = ({ size = 24, className = "" }) => (
 const Contact = () => {
   return (
     <>
-      <div className="pt-32 pb-16 min-h-screen bg-pure text-white">
-        <div className="container mx-auto px-4 max-w-5xl">
-          <h1 className="text-4xl md:text-5xl font-bold mb-12 font-heading text-center">
+      <div className="page-wrapper">
+        <div className="container" style={{ maxWidth: '1000px' }}>
+          <h1 className="page-title-large font-heading font-bold mb-12 text-center">
             CONTACT <span className="text-accent">US</span>
           </h1>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div className="grid-2">
             
             {/* Contact Info */}
             <div className="glass-panel p-8">
               <h2 className="text-2xl font-bold mb-6">Get in Touch</h2>
-              <p className="text-gray-400 mb-8">
+              <p className="text-secondary mb-8" style={{ lineHeight: '1.6' }}>
                 Have a question about a repair, want to check stock for a specific device, or ready to sell your phone? Reach out to us directly or visit our store in Phagwara.
               </p>
               
-              <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="bg-white/10 p-3 rounded-full text-accent">
+              <div className="flex-col gap-6">
+                <div className="flex-row items-start gap-4">
+                  <div style={{ background: 'rgba(255,255,255,0.1)', padding: '12px', borderRadius: '50%', color: 'var(--color-accent)' }}>
                     <Phone size={24} />
                   </div>
                   <div>
                     <h4 className="font-bold">Phone / WhatsApp</h4>
-                    <p className="text-gray-400 mt-1">+91 92162 22123</p>
+                    <p className="text-secondary mt-1">+91 92162 22123</p>
                   </div>
                 </div>
                 
-                <div className="flex items-start gap-4">
-                  <div className="bg-white/10 p-3 rounded-full text-accent">
+                <div className="flex-row items-start gap-4">
+                  <div style={{ background: 'rgba(255,255,255,0.1)', padding: '12px', borderRadius: '50%', color: 'var(--color-accent)' }}>
                     <MapPin size={24} />
                   </div>
                   <div>
                     <h4 className="font-bold">Store Address</h4>
-                    <p className="text-gray-400 mt-1">Phagwara, Punjab<br/>(Apple Authorised Store)</p>
+                    <p className="text-secondary mt-1">Phagwara, Punjab<br/>(Apple Authorised Store)</p>
                   </div>
                 </div>
                 
-                <div className="flex items-start gap-4">
-                  <div className="bg-white/10 p-3 rounded-full text-accent">
+                <div className="flex-row items-start gap-4">
+                  <div style={{ background: 'rgba(255,255,255,0.1)', padding: '12px', borderRadius: '50%', color: 'var(--color-accent)' }}>
                     <Instagram size={24} />
                   </div>
                   <div>
                     <h4 className="font-bold">Instagram</h4>
-                    <p className="text-gray-400 mt-1">@phone_doctor_phagwara</p>
+                    <p className="text-secondary mt-1">@phone_doctor_phagwara</p>
                   </div>
                 </div>
               </div>
@@ -63,29 +63,29 @@ const Contact = () => {
             {/* Contact Form */}
             <div className="glass-panel p-8">
               <h2 className="text-2xl font-bold mb-6">Send a Message</h2>
-              <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
-                <div>
-                  <label className="block text-sm font-medium text-gray-400 mb-1">Name</label>
-                  <input type="text" className="w-full bg-black/50 border border-white/10 rounded-lg p-3 text-white focus:border-accent focus:outline-none transition-colors" placeholder="Your Name" />
+              <form className="flex-col gap-4" onSubmit={(e) => e.preventDefault()}>
+                <div className="form-group">
+                  <label className="form-label">Name</label>
+                  <input type="text" className="form-input" placeholder="Your Name" />
                 </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-400 mb-1">Phone Number</label>
-                  <input type="tel" className="w-full bg-black/50 border border-white/10 rounded-lg p-3 text-white focus:border-accent focus:outline-none transition-colors" placeholder="Your Phone Number" />
+                <div className="form-group">
+                  <label className="form-label">Phone Number</label>
+                  <input type="tel" className="form-input" placeholder="Your Phone Number" />
                 </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-400 mb-1">Inquiry Type</label>
-                  <select className="w-full bg-black/50 border border-white/10 rounded-lg p-3 text-white focus:border-accent focus:outline-none transition-colors appearance-none">
+                <div className="form-group">
+                  <label className="form-label">Inquiry Type</label>
+                  <select className="form-select">
                     <option>Buy a Phone</option>
                     <option>Sell a Phone</option>
                     <option>Repair Service</option>
                     <option>Other Inquiry</option>
                   </select>
                 </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-400 mb-1">Message</label>
-                  <textarea rows="4" className="w-full bg-black/50 border border-white/10 rounded-lg p-3 text-white focus:border-accent focus:outline-none transition-colors" placeholder="How can we help you?"></textarea>
+                <div className="form-group">
+                  <label className="form-label">Message</label>
+                  <textarea rows="4" className="form-textarea" placeholder="How can we help you?"></textarea>
                 </div>
-                <button type="submit" className="w-full bg-accent hover:bg-red-700 text-white font-bold py-3 px-4 rounded-lg transition-colors mt-4">
+                <button type="submit" className="btn-solid" style={{ width: '100%', marginTop: '16px', padding: '12px' }}>
                   Send Message
                 </button>
               </form>

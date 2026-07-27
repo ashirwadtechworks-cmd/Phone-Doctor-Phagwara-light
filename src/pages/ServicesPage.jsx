@@ -4,58 +4,57 @@ import { ArrowRight, Wrench, RefreshCcw, DollarSign } from 'lucide-react';
 const ServicesPage = () => {
   return (
     <>
-      <div className="pt-32 pb-16 min-h-screen bg-pure text-white">
-        <div className="container mx-auto px-4 max-w-6xl">
-          <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 font-heading">
+      <div className="page-wrapper">
+        <div className="container">
+          <div className="page-header">
+            <h1 className="page-title">
               OUR <span className="text-accent">SERVICES</span>
             </h1>
-            <p className="text-gray-400 max-w-2xl mx-auto">
+            <p className="page-subtitle">
               Whether you're looking to upgrade, cash in on your old device, or get a professional repair, Phone Doctor Phagwara provides seamless, transparent, and premium services.
             </p>
           </div>
 
           {/* Buy Sell Exchange Section */}
-          <div className="mb-20">
-            <h2 className="text-3xl font-bold mb-8 font-heading text-center">BUY. SELL. EXCHANGE.</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="mb-16">
+            <h2 className="text-center text-3xl font-bold font-heading mb-8">BUY. SELL. EXCHANGE.</h2>
+            <div className="grid-3">
               
-              <div className="glass-panel p-8 text-center hover:border-white/20 transition-colors">
-                <div className="w-16 h-16 mx-auto bg-white/5 rounded-full flex items-center justify-center mb-6">
-                  <DollarSign size={32} className="text-white" />
+              <div className="glass-panel service-card">
+                <div className="service-icon-wrap">
+                  <DollarSign size={32} color="#fff" />
                 </div>
-                <h3 className="text-xl font-bold mb-4">Sell Your Phone</h3>
-                <p className="text-gray-400 text-sm mb-6">
+                <h3 className="service-card-title">Sell Your Phone</h3>
+                <p className="service-card-desc">
                   Get the best market value for your old device instantly. We offer secure data wiping and immediate payment.
                 </p>
-                <button className="text-accent font-bold text-sm flex items-center justify-center gap-2 mx-auto hover:text-white transition-colors">
+                <button className="btn-link">
                   GET A QUOTE <ArrowRight size={16} />
                 </button>
               </div>
 
-              <div className="glass-panel p-8 text-center border-accent/30 relative overflow-hidden">
-                <div className="absolute inset-0 bg-accent/5 pointer-events-none"></div>
-                <div className="w-16 h-16 mx-auto bg-accent/20 rounded-full flex items-center justify-center mb-6">
-                  <RefreshCcw size={32} className="text-accent" />
+              <div className="glass-panel service-card" style={{ borderColor: 'rgba(227,6,19,0.3)', background: 'linear-gradient(145deg, rgba(227,6,19,0.05), transparent)' }}>
+                <div className="service-icon-wrap accent">
+                  <RefreshCcw size={32} />
                 </div>
-                <h3 className="text-xl font-bold mb-4">Exchange & Upgrade</h3>
-                <p className="text-gray-400 text-sm mb-6">
+                <h3 className="service-card-title">Exchange & Upgrade</h3>
+                <p className="service-card-desc">
                   Trade in your current phone and apply its value towards any new or certified pre-owned device in our store.
                 </p>
-                <button className="bg-accent text-white px-6 py-2 rounded-lg font-bold text-sm hover:bg-red-700 transition-colors">
+                <button className="btn-solid">
                   UPGRADE NOW
                 </button>
               </div>
 
-              <div className="glass-panel p-8 text-center hover:border-white/20 transition-colors">
-                <div className="w-16 h-16 mx-auto bg-white/5 rounded-full flex items-center justify-center mb-6">
-                  <span className="text-3xl">📱</span>
+              <div className="glass-panel service-card">
+                <div className="service-icon-wrap">
+                  <span style={{ fontSize: '1.5rem' }}>📱</span>
                 </div>
-                <h3 className="text-xl font-bold mb-4">Buy Pre-Owned</h3>
-                <p className="text-gray-400 text-sm mb-6">
+                <h3 className="service-card-title">Buy Pre-Owned</h3>
+                <p className="service-card-desc">
                   Purchase fully certified, tested, and warranty-backed pre-owned smartphones at unbeatable prices.
                 </p>
-                <button className="text-accent font-bold text-sm flex items-center justify-center gap-2 mx-auto hover:text-white transition-colors">
+                <button className="btn-link">
                   VIEW INVENTORY <ArrowRight size={16} />
                 </button>
               </div>
@@ -64,31 +63,39 @@ const ServicesPage = () => {
           </div>
 
           {/* Repair Section */}
-          <div className="glass-panel p-8 md:p-12 relative overflow-hidden">
-            <div className="absolute -right-20 -bottom-20 w-64 h-64 bg-accent/10 rounded-full blur-3xl"></div>
+          <div className="glass-panel p-8 relative overflow-hidden" style={{ marginTop: '80px' }}>
+            <div style={{ position: 'absolute', right: '-10%', bottom: '-20%', width: '300px', height: '300px', background: 'rgba(227,6,19,0.1)', borderRadius: '50%', filter: 'blur(60px)' }}></div>
             
-            <div className="flex flex-col md:flex-row items-center gap-12 relative z-10">
+            <div className="flex-responsive gap-12 items-center relative z-10">
               <div className="flex-1">
-                <h2 className="text-3xl font-bold mb-4 font-heading flex items-center gap-4">
+                <h2 className="text-3xl font-bold mb-4 font-heading flex-row items-center gap-2">
                   <Wrench size={32} className="text-accent" /> EXPERT REPAIR
                 </h2>
-                <p className="text-gray-400 mb-6 leading-relaxed">
+                <p className="text-secondary mb-6" style={{ lineHeight: '1.6' }}>
                   Screen shattered? Battery draining fast? Water damage? Our certified expert technicians handle repairs for all major brands using original parts.
                 </p>
-                <ul className="space-y-3 mb-8">
-                  <li className="flex items-center gap-3 text-sm"><span className="w-1.5 h-1.5 bg-accent rounded-full"></span> Broken Screen Replacement</li>
-                  <li className="flex items-center gap-3 text-sm"><span className="w-1.5 h-1.5 bg-accent rounded-full"></span> Battery Replacement</li>
-                  <li className="flex items-center gap-3 text-sm"><span className="w-1.5 h-1.5 bg-accent rounded-full"></span> Camera & Lens Repair</li>
-                  <li className="flex items-center gap-3 text-sm"><span className="w-1.5 h-1.5 bg-accent rounded-full"></span> Software Troubleshooting</li>
+                <ul className="flex-col gap-2 mb-8" style={{ listStyle: 'none', padding: 0 }}>
+                  <li className="flex-row items-center gap-2 text-sm text-secondary">
+                    <span style={{ width: '6px', height: '6px', background: 'var(--color-accent)', borderRadius: '50%' }}></span> Broken Screen Replacement
+                  </li>
+                  <li className="flex-row items-center gap-2 text-sm text-secondary">
+                    <span style={{ width: '6px', height: '6px', background: 'var(--color-accent)', borderRadius: '50%' }}></span> Battery Replacement
+                  </li>
+                  <li className="flex-row items-center gap-2 text-sm text-secondary">
+                    <span style={{ width: '6px', height: '6px', background: 'var(--color-accent)', borderRadius: '50%' }}></span> Camera & Lens Repair
+                  </li>
+                  <li className="flex-row items-center gap-2 text-sm text-secondary">
+                    <span style={{ width: '6px', height: '6px', background: 'var(--color-accent)', borderRadius: '50%' }}></span> Software Troubleshooting
+                  </li>
                 </ul>
-                <button className="btn-mockup-outline">
+                <button className="btn-mockup-outline" style={{ display: 'inline-flex' }}>
                   BOOK REPAIR APPOINTMENT
                 </button>
               </div>
               
-              <div className="flex-1 w-full flex justify-center">
-                <div className="w-full max-w-sm h-64 bg-black/50 border border-white/10 rounded-2xl flex items-center justify-center shadow-2xl">
-                  <span className="text-6xl opacity-50">🛠️</span>
+              <div className="flex-1 w-full flex-row justify-center">
+                <div style={{ width: '100%', maxWidth: '350px', height: '250px', background: 'rgba(0,0,0,0.5)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <span style={{ fontSize: '4rem', opacity: 0.5 }}>🛠️</span>
                 </div>
               </div>
             </div>

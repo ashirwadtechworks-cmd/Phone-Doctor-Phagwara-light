@@ -13,40 +13,39 @@ const products = [
 const Phones = () => {
   return (
     <>
-      <div className="pt-32 pb-16 min-h-screen bg-pure text-white">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-center mb-12">
-            <h1 className="text-4xl font-bold font-heading">
+      <div className="page-wrapper">
+        <div className="container">
+          <div className="flex-responsive justify-between items-center mb-12">
+            <h1 className="page-title" style={{ marginBottom: 0 }}>
               NEW <span className="text-accent">SMARTPHONES</span>
             </h1>
-            <div className="flex gap-4 mt-6 md:mt-0 overflow-x-auto pb-2">
-              <button className="px-6 py-2 rounded-full border border-accent bg-accent/10 text-white font-medium whitespace-nowrap">All Brands</button>
-              <button className="px-6 py-2 rounded-full border border-white/20 hover:border-white/50 text-gray-400 hover:text-white transition-colors whitespace-nowrap">Apple</button>
-              <button className="px-6 py-2 rounded-full border border-white/20 hover:border-white/50 text-gray-400 hover:text-white transition-colors whitespace-nowrap">Samsung</button>
-              <button className="px-6 py-2 rounded-full border border-white/20 hover:border-white/50 text-gray-400 hover:text-white transition-colors whitespace-nowrap">OnePlus</button>
+            <div className="flex-row gap-4 mt-6" style={{ overflowX: 'auto', paddingBottom: '8px' }}>
+              <button className="btn-filter active">All Brands</button>
+              <button className="btn-filter">Apple</button>
+              <button className="btn-filter">Samsung</button>
+              <button className="btn-filter">OnePlus</button>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid-3">
             {products.map((product) => (
-              <div key={product.id} className="mockup-card p-6 flex flex-col group relative overflow-hidden">
-                <div className="absolute top-4 right-4 bg-white/10 px-3 py-1 rounded-full text-xs font-medium backdrop-blur-md z-10">
+              <div key={product.id} className="mockup-card p-6 flex-col relative overflow-hidden" style={{ cursor: 'pointer' }}>
+                <div className="absolute z-10" style={{ top: '16px', right: '16px', background: 'rgba(255,255,255,0.1)', padding: '4px 12px', borderRadius: '99px', fontSize: '0.75rem', fontWeight: 500, backdropFilter: 'blur(8px)' }}>
                   {product.brand}
                 </div>
                 
-                <div className="h-64 flex items-center justify-center bg-black/40 rounded-xl mb-6 border border-white/5 group-hover:border-accent/30 transition-colors relative">
-                   {/* Placeholder for phone image */}
-                   <span className="text-8xl opacity-80 group-hover:scale-110 transition-transform duration-500">{product.img}</span>
+                <div className="product-image-box mb-6">
+                   <span style={{ fontSize: '5rem', opacity: 0.8, transition: 'transform 0.5s' }}>{product.img}</span>
                 </div>
                 
-                <div className="flex-1 flex flex-col">
+                <div className="flex-1 flex-col">
                   <h3 className="text-xl font-bold mb-2 font-heading">{product.name}</h3>
-                  <div className="flex justify-between items-end mt-auto pt-4 border-t border-white/10">
+                  <div className="flex-row justify-between items-center mt-auto" style={{ paddingTop: '16px', borderTop: '1px solid rgba(255,255,255,0.1)' }}>
                     <div>
-                      <p className="text-xs text-gray-400 mb-1">Starting from</p>
+                      <p className="text-xs text-secondary mb-1">Starting from</p>
                       <p className="text-xl font-bold text-accent">{product.price}</p>
                     </div>
-                    <button className="bg-white/10 hover:bg-accent hover:text-white p-3 rounded-lg transition-colors">
+                    <button style={{ background: 'rgba(255,255,255,0.1)', border: 'none', color: '#fff', padding: '12px', borderRadius: '8px', cursor: 'pointer', transition: 'background 0.3s' }}>
                       <ShoppingCart size={20} />
                     </button>
                   </div>

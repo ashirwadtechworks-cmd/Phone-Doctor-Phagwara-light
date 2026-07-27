@@ -12,36 +12,37 @@ const accessories = [
 const Accessories = () => {
   return (
     <>
-      <div className="pt-32 pb-16 min-h-screen bg-pure text-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h1 className="text-4xl font-bold font-heading mb-4">
+      <div className="page-wrapper">
+        <div className="container">
+          <div className="page-header">
+            <h1 className="page-title">
               PREMIUM <span className="text-accent">ACCESSORIES</span>
             </h1>
-            <p className="text-gray-400">Genuine accessories for every need.</p>
+            <p className="page-subtitle">Genuine accessories for every need.</p>
             
-            <div className="flex flex-wrap justify-center gap-4 mt-8">
-              <button className="px-6 py-2 rounded-full border border-accent bg-accent/10 text-white font-medium text-sm">All</button>
-              <button className="px-6 py-2 rounded-full border border-white/20 hover:border-white/50 text-gray-400 hover:text-white transition-colors text-sm">Audio</button>
-              <button className="px-6 py-2 rounded-full border border-white/20 hover:border-white/50 text-gray-400 hover:text-white transition-colors text-sm">Wearables</button>
-              <button className="px-6 py-2 rounded-full border border-white/20 hover:border-white/50 text-gray-400 hover:text-white transition-colors text-sm">Power & Cables</button>
-              <button className="px-6 py-2 rounded-full border border-white/20 hover:border-white/50 text-gray-400 hover:text-white transition-colors text-sm">Protection</button>
+            <div className="flex-row justify-center gap-4 mt-8" style={{ flexWrap: 'wrap' }}>
+              <button className="btn-filter active">All</button>
+              <button className="btn-filter">Audio</button>
+              <button className="btn-filter">Wearables</button>
+              <button className="btn-filter">Power & Cables</button>
+              <button className="btn-filter">Protection</button>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <div className="grid-4">
             {accessories.map((item) => (
-              <div key={item.id} className="mockup-card p-5 group flex flex-col cursor-pointer">
-                <div className="bg-white/5 rounded-lg h-48 flex items-center justify-center mb-4 group-hover:bg-white/10 transition-colors">
-                  <span className="text-6xl group-hover:scale-110 transition-transform">{item.img}</span>
+              <div key={item.id} className="mockup-card p-6 flex-col justify-between" style={{ cursor: 'pointer' }}>
+                <div className="product-image-box mb-6">
+                  <span style={{ fontSize: '4rem', transition: 'transform 0.3s' }}>{item.img}</span>
                 </div>
-                <div className="flex-1 flex flex-col">
-                  <span className="text-xs text-accent font-bold mb-1 uppercase tracking-wider">{item.category}</span>
-                  <h3 className="font-bold mb-1 line-clamp-2">{item.name}</h3>
-                  <p className="text-xs text-gray-400 mb-4">{item.brand}</p>
-                  <div className="mt-auto flex justify-between items-center pt-3 border-t border-white/10">
-                    <span className="font-bold">{item.price}</span>
-                    <span className="text-xs font-bold text-gray-400 group-hover:text-white transition-colors">BUY NOW</span>
+                <div className="flex-col flex-1">
+                  <span style={{ fontSize: '0.65rem', color: 'var(--color-accent)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '8px' }}>{item.category}</span>
+                  <h3 style={{ fontSize: '1rem', fontWeight: 700, marginBottom: '4px' }}>{item.name}</h3>
+                  <p style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', marginBottom: '16px' }}>{item.brand}</p>
+                  
+                  <div className="flex-row justify-between items-center mt-auto" style={{ paddingTop: '16px', borderTop: '1px solid rgba(255,255,255,0.1)' }}>
+                    <span style={{ fontWeight: 700, fontSize: '0.875rem' }}>{item.price}</span>
+                    <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--text-secondary)' }}>BUY NOW</span>
                   </div>
                 </div>
               </div>
