@@ -1,90 +1,86 @@
 import React, { useState } from 'react';
-import { Search, Shield, Battery, Star, Filter, ChevronRight, Check } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { Search, ChevronDown, Check } from 'lucide-react';
 import heroImg from '../assets/hero_smartphones_3d.jpg';
 
 const preOwnedProducts = [
-  { id: 1, name: 'Apple iPhone 14 Pro Max', storage: '256GB', condition: 'Superb', price: '₹95,000', originalPrice: '₹1,39,900', battery: '98%', img: heroImg },
-  { id: 2, name: 'Samsung Galaxy S23 Ultra', storage: '256GB', condition: 'Excellent', price: '₹75,000', originalPrice: '₹1,24,999', battery: '95%', img: heroImg },
-  { id: 3, name: 'Apple iPhone 13', storage: '128GB', condition: 'Good', price: '₹42,000', originalPrice: '₹59,900', battery: '90%', img: heroImg },
-  { id: 4, name: 'Google Pixel 7 Pro', storage: '128GB', condition: 'Superb', price: '₹48,000', originalPrice: '₹84,999', battery: '94%', img: heroImg },
-  { id: 5, name: 'Apple iPhone 12', storage: '64GB', condition: 'Fair', price: '₹28,000', originalPrice: '₹49,900', battery: '85%', img: heroImg },
-  { id: 6, name: 'OnePlus 11 5G', storage: '256GB', condition: 'Excellent', price: '₹45,000', originalPrice: '₹61,999', battery: '92%', img: heroImg },
+  { id: 1, name: 'Apple iPhone 14 Pro Max - Refurbished', ram: '8 GB', storage: '256 GB', condition: 'Superb', price: '₹ 95,000', originalPrice: '₹ 1,39,900', discount: '32% off', img: heroImg, color: '#42C86B' },
+  { id: 2, name: 'Samsung Galaxy S23 Ultra 5G - Refurbished', ram: '12 GB', storage: '256 GB', condition: 'Excellent', price: '₹ 75,000', originalPrice: '₹ 1,24,999', discount: '40% off', img: heroImg, color: '#f5a623' },
+  { id: 3, name: 'Apple iPhone 13 - Refurbished', ram: '4 GB', storage: '128 GB', condition: 'Good', price: '₹ 42,000', originalPrice: '₹ 59,900', discount: '30% off', img: heroImg, color: '#ff7a00' },
+  { id: 4, name: 'Google Pixel 7 Pro 5G - Refurbished', ram: '12 GB', storage: '128 GB', condition: 'Superb', price: '₹ 48,000', originalPrice: '₹ 84,999', discount: '43% off', img: heroImg, color: '#42C86B' },
+  { id: 5, name: 'Apple iPhone 12 - Refurbished', ram: '4 GB', storage: '64 GB', condition: 'Fair', price: '₹ 28,000', originalPrice: '₹ 49,900', discount: '44% off', img: heroImg, color: '#ff3b30' },
+  { id: 6, name: 'OnePlus 11 5G - Refurbished', ram: '8 GB', storage: '256 GB', condition: 'Excellent', price: '₹ 45,000', originalPrice: '₹ 61,999', discount: '27% off', img: heroImg, color: '#f5a623' },
 ];
 
-const brands = ['Apple', 'Samsung', 'Google', 'OnePlus', 'Xiaomi', 'Vivo'];
+const brands = ['Apple', 'Samsung', 'OnePlus', 'Xiaomi', 'Vivo', 'Google'];
 const conditions = ['Superb', 'Excellent', 'Good', 'Fair'];
 const storageOptions = ['64 GB', '128 GB', '256 GB', '512 GB'];
 
 const PreOwned = () => {
-  const [activeBrand, setActiveBrand] = useState('All');
-  
   return (
-    <div className="page-wrapper" style={{ paddingTop: '100px', backgroundColor: 'var(--bg-secondary)' }}>
-      <div className="container" style={{ maxWidth: '1400px' }}>
+    <div className="page-wrapper" style={{ paddingTop: '80px', backgroundColor: '#f8f9fa' }}>
+      <div className="container" style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 16px' }}>
         
         {/* Breadcrumb & Header */}
-        <div className="flex-col mb-6">
-          <p className="text-sm text-secondary mb-4">Home &gt; Buy Refurbished Mobile Phones</p>
+        <div className="flex-col mb-4 pt-4">
+          <p className="text-sm mb-4" style={{ color: '#878787', fontSize: '12px' }}>Home &gt; Buy Refurbished Mobile Phones</p>
           <div className="flex-responsive justify-between items-center gap-4">
-            <h1 className="text-3xl font-bold font-heading text-primary">Buy Refurbished Mobile Phones</h1>
-            
-            <div className="relative w-full" style={{ maxWidth: '400px' }}>
-              <input 
-                type="text" 
-                placeholder="Search for mobiles..." 
-                className="form-input"
-                style={{ paddingLeft: '40px', borderRadius: '8px', background: 'var(--bg-card)', border: '1px solid var(--border-light)' }}
-              />
-              <Search size={18} className="absolute text-secondary" style={{ left: '14px', top: '14px' }} />
-            </div>
+            <h1 className="font-bold" style={{ fontSize: '24px', color: '#000' }}>Buy Refurbished Mobile Phone</h1>
           </div>
         </div>
 
         {/* E-commerce Layout: Sidebar + Grid */}
-        <div className="flex-responsive items-start gap-8">
+        <div className="flex-responsive items-start" style={{ gap: '24px' }}>
           
           {/* Left Sidebar (Filters) */}
-          <div className="glass-panel p-6" style={{ width: '100%', maxWidth: '280px', flexShrink: 0, background: 'var(--bg-card)' }}>
-            <div className="flex-row justify-between items-center mb-6">
-              <h3 className="font-bold text-lg text-primary">Filters</h3>
-              <button className="text-accent text-sm font-bold">Clear All</button>
+          <div style={{ width: '100%', maxWidth: '280px', flexShrink: 0, background: '#fff', borderRadius: '4px', border: '1px solid #e0e0e0', padding: '16px' }}>
+            <div className="flex-row justify-between items-center mb-4" style={{ borderBottom: '1px solid #e0e0e0', paddingBottom: '16px' }}>
+              <h3 className="font-bold text-base" style={{ color: '#212121' }}>Filters</h3>
+              <button style={{ color: '#42c8b7', fontSize: '14px', fontWeight: '500' }}>CLEAR ALL</button>
             </div>
 
             {/* Brand Filter */}
-            <div className="mb-8">
-              <h4 className="font-bold mb-4 text-sm text-primary">BRAND</h4>
+            <div style={{ borderBottom: '1px solid #e0e0e0', padding: '16px 0' }}>
+              <div className="flex-row justify-between items-center mb-3 cursor-pointer">
+                <h4 className="font-medium" style={{ fontSize: '14px', color: '#212121' }}>Brand</h4>
+                <ChevronDown size={18} color="#878787" />
+              </div>
               <div className="flex-col gap-3">
                 {brands.map(brand => (
                   <label key={brand} className="flex-row items-center gap-3 cursor-pointer">
-                    <input type="checkbox" style={{ width: '16px', height: '16px', accentColor: 'var(--color-accent)' }} />
-                    <span className="text-sm text-primary">{brand}</span>
+                    <input type="checkbox" style={{ width: '16px', height: '16px', accentColor: '#42c8b7' }} />
+                    <span style={{ fontSize: '14px', color: '#4a4a4a' }}>{brand}</span>
                   </label>
                 ))}
               </div>
             </div>
 
             {/* Condition Filter */}
-            <div className="mb-8">
-              <h4 className="font-bold mb-4 text-sm text-primary">CONDITION</h4>
+            <div style={{ borderBottom: '1px solid #e0e0e0', padding: '16px 0' }}>
+              <div className="flex-row justify-between items-center mb-3 cursor-pointer">
+                <h4 className="font-medium" style={{ fontSize: '14px', color: '#212121' }}>Condition</h4>
+                <ChevronDown size={18} color="#878787" />
+              </div>
               <div className="flex-col gap-3">
                 {conditions.map(cond => (
                   <label key={cond} className="flex-row items-center gap-3 cursor-pointer">
-                    <input type="checkbox" style={{ width: '16px', height: '16px', accentColor: 'var(--color-accent)' }} />
-                    <span className="text-sm text-primary">{cond}</span>
+                    <input type="checkbox" style={{ width: '16px', height: '16px', accentColor: '#42c8b7' }} />
+                    <span style={{ fontSize: '14px', color: '#4a4a4a' }}>{cond}</span>
                   </label>
                 ))}
               </div>
             </div>
 
             {/* Storage Filter */}
-            <div>
-              <h4 className="font-bold mb-4 text-sm text-primary">STORAGE</h4>
+            <div style={{ padding: '16px 0' }}>
+              <div className="flex-row justify-between items-center mb-3 cursor-pointer">
+                <h4 className="font-medium" style={{ fontSize: '14px', color: '#212121' }}>Internal Storage</h4>
+                <ChevronDown size={18} color="#878787" />
+              </div>
               <div className="flex-col gap-3">
                 {storageOptions.map(storage => (
                   <label key={storage} className="flex-row items-center gap-3 cursor-pointer">
-                    <input type="checkbox" style={{ width: '16px', height: '16px', accentColor: 'var(--color-accent)' }} />
-                    <span className="text-sm text-primary">{storage}</span>
+                    <input type="checkbox" style={{ width: '16px', height: '16px', accentColor: '#42c8b7' }} />
+                    <span style={{ fontSize: '14px', color: '#4a4a4a' }}>{storage}</span>
                   </label>
                 ))}
               </div>
@@ -94,58 +90,52 @@ const PreOwned = () => {
           {/* Right Content (Product Grid) */}
           <div className="flex-1 w-full">
             
-            {/* Banner */}
-            <div className="glass-panel mb-8 p-6 flex-responsive justify-between items-center" style={{ background: 'linear-gradient(90deg, #fce4e4 0%, #fff 100%)', border: '1px solid var(--border-accent)' }}>
-              <div>
-                <h2 className="text-2xl font-bold font-heading mb-2 text-accent">Phone Doctor Assured</h2>
-                <p className="text-sm text-secondary">32-point quality check • 6 Months Warranty • 7 Days Replacement</p>
-              </div>
-              <Shield size={48} className="text-accent opacity-20 mt-4 md:mt-0" />
-            </div>
-
             {/* Grid */}
-            <div className="grid-3" style={{ gap: '24px' }}>
-              {preOwnedProducts.map((device, idx) => (
-                <motion.div 
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))', gap: '16px' }}>
+              {preOwnedProducts.map((device) => (
+                <div 
                   key={device.id} 
-                  className="mockup-card relative flex-col"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3, delay: idx * 0.05 }}
-                  style={{ cursor: 'pointer', display: 'flex', background: 'var(--bg-card)' }}
+                  style={{ 
+                    background: '#fff', 
+                    borderRadius: '8px', 
+                    border: '1px solid #e0e0e0',
+                    cursor: 'pointer',
+                    overflow: 'hidden',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    transition: 'box-shadow 0.2s',
+                  }}
+                  onMouseOver={(e) => e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.1)'}
+                  onMouseOut={(e) => e.currentTarget.style.boxShadow = 'none'}
                 >
                   
-                  {/* Product Image */}
-                  <div className="w-full flex justify-center items-center p-6" style={{ height: '220px', background: 'var(--bg-pure)' }}>
-                    <img src={device.img} alt={device.name} style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain', mixBlendMode: 'multiply' }} />
+                  {/* Product Image Box */}
+                  <div style={{ position: 'relative', width: '100%', height: '200px', display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '16px' }}>
+                    {/* Condition Badge */}
+                    <div style={{ position: 'absolute', top: '12px', left: '12px', background: 'rgba(255,255,255,0.9)', padding: '2px 8px', borderRadius: '4px', border: `1px solid ${device.color}`, display: 'flex', alignItems: 'center', gap: '4px' }}>
+                      <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: device.color }}></div>
+                      <span style={{ fontSize: '10px', fontWeight: '600', color: device.color }}>{device.condition}</span>
+                    </div>
+                    
+                    <img src={device.img} alt={device.name} style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }} />
                   </div>
                   
-                  {/* Badges */}
-                  <div className="absolute top-4 left-4 flex-row gap-2">
-                    <span className="text-xs font-bold" style={{ padding: '4px 8px', borderRadius: '4px', background: 'var(--bg-secondary)', color: 'var(--text-primary)' }}>
-                      {device.condition}
-                    </span>
-                  </div>
-
                   {/* Product Details */}
-                  <div className="p-5 flex-col flex-1 border-t border-light" style={{ borderTop: '1px solid var(--border-light)' }}>
-                    <h3 className="font-bold text-lg font-heading mb-1 text-primary" style={{ display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
-                      {device.name} - Refurbished
+                  <div style={{ padding: '16px', display: 'flex', flexDirection: 'column', flex: 1 }}>
+                    <h3 style={{ fontSize: '14px', fontWeight: '500', color: '#212121', marginBottom: '8px', lineHeight: '1.4', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+                      {device.name}
                     </h3>
-                    <p className="text-xs text-secondary mb-4">{device.storage} • {device.battery} Battery Health</p>
+                    <p style={{ fontSize: '12px', color: '#878787', marginBottom: '16px' }}>{device.ram} RAM | {device.storage} Storage</p>
                     
-                    <div className="mt-auto">
-                      <div className="flex-row items-baseline gap-2 mb-4">
-                        <span className="font-bold text-2xl font-heading text-primary">{device.price}</span>
-                        <span className="text-sm text-secondary" style={{ textDecoration: 'line-through' }}>{device.originalPrice}</span>
+                    <div style={{ marginTop: 'auto' }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
+                        <span style={{ fontSize: '18px', fontWeight: 'bold', color: '#212121' }}>{device.price}</span>
+                        <span style={{ fontSize: '12px', color: '#878787', textDecoration: 'line-through' }}>{device.originalPrice}</span>
+                        <span style={{ fontSize: '12px', fontWeight: '600', color: '#388e3c' }}>{device.discount}</span>
                       </div>
-                      
-                      <button className="btn-solid w-full" style={{ padding: '12px', borderRadius: '8px' }}>
-                        Buy Now
-                      </button>
                     </div>
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>
