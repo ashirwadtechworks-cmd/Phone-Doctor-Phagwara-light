@@ -46,9 +46,7 @@ const Navbar = () => {
         
         {/* LOGO */}
         <Link to="/" className="mockup-logo">
-          <div className="logo-icon-box" style={{ background: 'var(--color-accent)', padding: '8px', borderRadius: '8px' }}>
-            <Phone size={24} color="white" fill="white" />
-          </div>
+          <img src="/favicon.svg" alt="Phone Doctor Logo" style={{ width: '40px', height: '40px', marginRight: '4px' }} />
           <div className="logo-text-stack">
             <span className="logo-title">PHONE DOCTOR</span>
             <span className="logo-subtitle">PHAGWARA</span>
@@ -116,7 +114,7 @@ const Navbar = () => {
             BOOK REPAIR
           </Link>
 
-          <button className="mobile-menu-btn" onClick={toggleMenu}>
+          <button className="mobile-menu-btn" onClick={toggleMenu} style={{ background: 'transparent', border: 'none', color: 'var(--text-primary)', cursor: 'pointer', padding: '8px' }}>
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
