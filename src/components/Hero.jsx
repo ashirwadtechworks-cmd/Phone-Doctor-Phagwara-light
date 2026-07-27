@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronRight, ShieldCheck, Award, Zap, ThumbsUp, Wrench, Smartphone } from 'lucide-react';
+import { ChevronRight, ShieldCheck, Award, Zap, ThumbsUp, Wrench, Smartphone, ArrowRight } from 'lucide-react';
 import './Hero.css';
-import heroImg from '../assets/hero_smartphones.jpg';
+import heroImg from '../assets/hero_smartphones_3d.jpg';
 
 const Hero = () => {
   return (
@@ -10,13 +10,14 @@ const Hero = () => {
       {/* Background glow effects */}
       <div className="hero-glow-left"></div>
       <div className="hero-glow-right"></div>
+      <div className="hero-particles"></div>
       
       <div className="container hero-container">
         
         <div className="hero-content">
           <h1 className="hero-title animate-fade-in">
             YOUR TRUSTED<br />
-            <span className="text-accent">SMARTPHONE</span><br />
+            <span className="text-gradient-red">SMARTPHONE</span><br />
             DESTINATION
           </h1>
           
@@ -29,13 +30,13 @@ const Hero = () => {
           </p>
           
           <div className="hero-buttons animate-fade-in delay-3">
-            <Link to="/phones" className="btn-mockup-solid">
-              SHOP PHONES <ChevronRight size={16} />
+            <Link to="/phones" className="btn btn-primary btn-animated">
+              SHOP PHONES <ArrowRight size={16} className="btn-icon-animate" />
             </Link>
-            <Link to="/services" className="btn-mockup-outline-large">
+            <Link to="/services" className="btn btn-outline btn-animated">
               SELL YOUR PHONE
             </Link>
-            <Link to="/services" className="btn-mockup-outline-large">
+            <Link to="/services" className="btn btn-outline btn-animated">
               BOOK REPAIR <Wrench size={16} className="ml-2" />
             </Link>
           </div>
@@ -64,19 +65,14 @@ const Hero = () => {
           </div>
         </div>
         
-        <div className="hero-visual animate-fade-in delay-2">
-          {/* We use a CSS structure to mimic the pedestal and glowing rings */}
+        <div className="hero-visual animate-fade-in delay-2 animate-float-slow">
           <div className="hero-rings">
             <div className="ring ring-1"></div>
             <div className="ring ring-2"></div>
             <div className="ring ring-3"></div>
           </div>
           <div className="hero-image-wrapper">
-            <img src={heroImg} alt="Premium Smartphones" className="hero-image" />
-          </div>
-          <div className="hero-pedestal">
-            <div className="pedestal-top"></div>
-            <div className="pedestal-base"></div>
+            <img src={heroImg} alt="Premium Smartphones" className="hero-image3d" />
           </div>
         </div>
         
