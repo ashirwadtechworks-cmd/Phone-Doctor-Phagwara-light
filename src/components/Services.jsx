@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { RefreshCw, Smartphone, DollarSign, Wrench, Battery, Cpu, Droplet, ShieldCheck, Zap } from 'lucide-react';
 import './Services.css';
 
@@ -18,7 +19,7 @@ const Services = () => {
             </div>
             <h3>Buy Device</h3>
             <p>Get the latest premium smartphones at unbeatable prices.</p>
-            <button className="btn btn-outline btn-glass mt-4">Browse</button>
+            <Link to="/phones" className="btn btn-outline btn-glass mt-4">Browse</Link>
           </div>
           
           <div className="trade-card glass-panel highlight">
@@ -27,7 +28,7 @@ const Services = () => {
             </div>
             <h3>Sell Device</h3>
             <p>Get the best instant cash value for your old smartphone.</p>
-            <button className="btn btn-primary mt-4">Get Quote</button>
+            <Link to="/services" className="btn btn-primary mt-4">Get Quote</Link>
           </div>
           
           <div className="trade-card glass-panel">
@@ -36,7 +37,7 @@ const Services = () => {
             </div>
             <h3>Exchange Device</h3>
             <p>Upgrade to a new phone easily with our hassle-free exchange.</p>
-            <button className="btn btn-outline btn-glass mt-4">Exchange</button>
+            <Link to="/services" className="btn btn-outline btn-glass mt-4">Exchange</Link>
           </div>
         </div>
 
@@ -72,7 +73,7 @@ const Services = () => {
               </div>
             </div>
             
-            <button className="btn btn-primary mt-8">Book a Repair</button>
+            <Link to="/services" className="btn btn-primary mt-8">Book a Repair</Link>
           </div>
           
           <div className="repair-visual glass">

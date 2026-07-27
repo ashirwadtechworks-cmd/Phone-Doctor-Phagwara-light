@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { MapPin, Phone, Mail, Clock } from 'lucide-react';
 
 const Instagram = ({ size = 24, className = "" }) => (
@@ -29,15 +30,15 @@ const Footer = () => {
         <div className="footer-grid">
           
           <div className="footer-brand">
-            <a href="#" className="logo">
+            <Link to="/" className="logo">
               <span className="logo-text">PHONE DOCTOR</span>
               <span className="logo-dot">.</span>
-            </a>
+            </Link>
             <p className="footer-desc mt-4">
-              Your premium destination for smartphones, repairs, and accessories. Experience luxury and trust.
+              Apple Authorised Store. Buy, Sell, and Repair premium smartphones and accessories.
             </p>
             <div className="social-links mt-4">
-              <a href="#" className="social-link"><Instagram size={20} /></a>
+              <a href="https://instagram.com/phone_doctor_phagwara" target="_blank" rel="noopener noreferrer" className="social-link"><Instagram size={20} /></a>
               <a href="#" className="social-link"><Facebook size={20} /></a>
               <a href="#" className="social-link"><Twitter size={20} /></a>
             </div>
@@ -46,20 +47,20 @@ const Footer = () => {
           <div className="footer-links">
             <h4 className="footer-title">Quick Links</h4>
             <ul>
-              <li><a href="#phones">New Phones</a></li>
-              <li><a href="#pre-owned">Pre-Owned</a></li>
-              <li><a href="#services">Sell Device</a></li>
-              <li><a href="#services">Book Repair</a></li>
+              <li><Link to="/phones">New Phones</Link></li>
+              <li><Link to="/pre-owned">Pre-Owned</Link></li>
+              <li><Link to="/services">Sell Device</Link></li>
+              <li><Link to="/services">Book Repair</Link></li>
             </ul>
           </div>
 
           <div className="footer-links">
             <h4 className="footer-title">Services</h4>
             <ul>
-              <li><a href="#">Screen Replacement</a></li>
-              <li><a href="#">Battery Replacement</a></li>
-              <li><a href="#">Software Issues</a></li>
-              <li><a href="#">Accessories</a></li>
+              <li><Link to="/services">Screen Replacement</Link></li>
+              <li><Link to="/services">Battery Replacement</Link></li>
+              <li><Link to="/services">Software Issues</Link></li>
+              <li><Link to="/accessories">Accessories</Link></li>
             </ul>
           </div>
 
@@ -71,7 +72,7 @@ const Footer = () => {
             </div>
             <div className="contact-item">
               <Phone size={20} className="contact-icon" />
-              <span>+91 98765 43210</span>
+              <span>+91 7009746451</span>
             </div>
             <div className="contact-item">
               <Mail size={20} className="contact-icon" />

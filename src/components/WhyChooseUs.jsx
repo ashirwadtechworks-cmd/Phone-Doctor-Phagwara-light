@@ -74,11 +74,12 @@ const WhyChooseUs = () => {
             <div className="instagram-container glass-panel">
               <Instagram size={48} className="insta-icon" />
               <h3>Join Our Community</h3>
-              <p>Follow us on Instagram for the latest offers, new smartphone launches, and behind-the-scenes.</p>
-              <button className="btn btn-primary mt-4">
+              <p>Apple Authorised Store | Buy, Sell & Repair</p>
+              <p className="mb-4 text-accent font-semibold">149k+ Followers on Instagram</p>
+              <a href="https://instagram.com/phone_doctor_phagwara" target="_blank" rel="noopener noreferrer" className="btn btn-primary mt-4">
                 <Instagram size={20} className="btn-icon" />
-                @PhoneDoctorPhagwara
-              </button>
+                @phone_doctor_phagwara
+              </a>
             </div>
 
           </div>

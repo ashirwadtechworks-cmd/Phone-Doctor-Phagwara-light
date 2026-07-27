@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { ArrowRight, Smartphone, RefreshCw, Wrench } from 'lucide-react';
 import './Hero.css';
 import heroImg from '../assets/hero_smartphones.jpg';
@@ -28,18 +29,18 @@ const Hero = () => {
           </p>
           
           <div className="hero-buttons animate-fade-in delay-3">
-            <button className="btn btn-primary">
+            <Link to="/phones" className="btn btn-primary">
               <Smartphone size={20} className="btn-icon" />
               Shop Phones
-            </button>
-            <button className="btn btn-outline btn-glass">
+            </Link>
+            <Link to="/services" className="btn btn-outline btn-glass">
               <RefreshCw size={20} className="btn-icon" />
               Sell / Exchange
-            </button>
-            <button className="btn btn-outline btn-glass">
+            </Link>
+            <Link to="/services" className="btn btn-outline btn-glass">
               <Wrench size={20} className="btn-icon" />
               Book Repair
-            </button>
+            </Link>
           </div>
         </div>
         

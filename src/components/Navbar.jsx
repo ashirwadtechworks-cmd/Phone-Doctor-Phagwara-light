@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import './Navbar.css';
 
@@ -17,16 +18,16 @@ const Navbar = () => {
   return (
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="container nav-container">
-        <a href="#" className="logo">
+        <Link to="/" className="logo">
           <span className="logo-text">PHONE DOCTOR</span>
           <span className="logo-dot">.</span>
-        </a>
+        </Link>
         
         <div className={`nav-links ${mobileMenuOpen ? 'active' : ''}`}>
-          <a href="#phones" className="nav-link">Phones</a>
-          <a href="#pre-owned" className="nav-link">Pre-Owned</a>
-          <a href="#services" className="nav-link">Services</a>
-          <a href="#accessories" className="nav-link">Accessories</a>
+          <Link to="/phones" className="nav-link" onClick={() => setMobileMenuOpen(false)}>Phones</Link>
+          <Link to="/pre-owned" className="nav-link" onClick={() => setMobileMenuOpen(false)}>Pre-Owned</Link>
+          <Link to="/services" className="nav-link" onClick={() => setMobileMenuOpen(false)}>Services</Link>
+          <Link to="/accessories" className="nav-link" onClick={() => setMobileMenuOpen(false)}>Accessories</Link>
         </div>
         
         <div className="nav-actions">
