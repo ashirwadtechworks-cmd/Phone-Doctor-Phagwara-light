@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Phone, MapPin, Mail } from 'lucide-react';
 
 const Instagram = ({ size = 24, className = "" }) => (
@@ -10,6 +10,23 @@ const Instagram = ({ size = 24, className = "" }) => (
 );
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    phone: '',
+    type: 'Buy a Phone',
+    message: ''
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const text = `Hi Phone Doctor,%0A%0AI am ${formData.name}.%0AMy Phone Number: ${formData.phone}%0A%0A*Inquiry*: ${formData.type}%0A*Message*: ${formData.message}`;
+    window.open(`https://wa.me/919216222123?text=${text}`, '_blank');
+  };
+
   return (
     <>
       <div className="page-wrapper">
@@ -28,7 +45,7 @@ const Contact = () => {
               </p>
               
               <div className="flex-col gap-6">
-                <div className="flex-row items-start gap-4">
+                <a href="https://wa.me/919216222123" target="_blank" rel="noopener noreferrer" className="flex-row items-start gap-4" style={{ textDecoration: 'none', color: 'inherit' }}>
                   <div style={{ background: 'rgba(255,255,255,0.1)', padding: '12px', borderRadius: '50%', color: 'var(--color-accent)' }}>
                     <Phone size={24} />
                   </div>
@@ -36,9 +53,9 @@ const Contact = () => {
                     <h4 className="font-bold">Phone / WhatsApp</h4>
                     <p className="text-secondary mt-1">+91 92162 22123</p>
                   </div>
-                </div>
+                </a>
                 
-                <div className="flex-row items-start gap-4">
+                <a href="https://maps.google.com/?q=Phagwara,+Punjab" target="_blank" rel="noopener noreferrer" className="flex-row items-start gap-4" style={{ textDecoration: 'none', color: 'inherit' }}>
                   <div style={{ background: 'rgba(255,255,255,0.1)', padding: '12px', borderRadius: '50%', color: 'var(--color-accent)' }}>
                     <MapPin size={24} />
                   </div>
@@ -46,9 +63,9 @@ const Contact = () => {
                     <h4 className="font-bold">Store Address</h4>
                     <p className="text-secondary mt-1">Phagwara, Punjab<br/>(Apple Authorised Store)</p>
                   </div>
-                </div>
+                </a>
                 
-                <div className="flex-row items-start gap-4">
+                <a href="https://instagram.com/phone_doctor_phagwara" target="_blank" rel="noopener noreferrer" className="flex-row items-start gap-4" style={{ textDecoration: 'none', color: 'inherit' }}>
                   <div style={{ background: 'rgba(255,255,255,0.1)', padding: '12px', borderRadius: '50%', color: 'var(--color-accent)' }}>
                     <Instagram size={24} />
                   </div>
@@ -56,25 +73,25 @@ const Contact = () => {
                     <h4 className="font-bold">Instagram</h4>
                     <p className="text-secondary mt-1">@phone_doctor_phagwara</p>
                   </div>
-                </div>
+                </a>
               </div>
             </div>
             
             {/* Contact Form */}
             <div className="glass-panel p-8">
               <h2 className="text-2xl font-bold mb-6">Send a Message</h2>
-              <form className="flex-col gap-4" onSubmit={(e) => e.preventDefault()}>
+              <form className="flex-col gap-4" onSubmit={handleSubmit}>
                 <div className="form-group">
                   <label className="form-label">Name</label>
-                  <input type="text" className="form-input" placeholder="Your Name" />
+                  <input type="text" name="name" value={formData.name} onChange={handleChange} required className="form-input" placeholder="Your Name" />
                 </div>
                 <div className="form-group">
                   <label className="form-label">Phone Number</label>
-                  <input type="tel" className="form-input" placeholder="Your Phone Number" />
+                  <input type="tel" name="phone" value={formData.phone} onChange={handleChange} required className="form-input" placeholder="Your Phone Number" />
                 </div>
                 <div className="form-group">
                   <label className="form-label">Inquiry Type</label>
-                  <select className="form-select">
+                  <select name="type" value={formData.type} onChange={handleChange} className="form-select">
                     <option>Buy a Phone</option>
                     <option>Sell a Phone</option>
                     <option>Repair Service</option>
@@ -83,7 +100,7 @@ const Contact = () => {
                 </div>
                 <div className="form-group">
                   <label className="form-label">Message</label>
-                  <textarea rows="4" className="form-textarea" placeholder="How can we help you?"></textarea>
+                  <textarea rows="4" name="message" value={formData.message} onChange={handleChange} required className="form-textarea" placeholder="How can we help you?"></textarea>
                 </div>
                 <button type="submit" className="btn-solid" style={{ width: '100%', marginTop: '16px', padding: '12px' }}>
                   Send Message
