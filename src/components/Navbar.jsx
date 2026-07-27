@@ -48,7 +48,10 @@ const Navbar = () => {
         <div className="nav-actions">
           <div className="nav-contact">
             <Phone size={16} className="text-accent" />
-            <span>92162 22123</span>
+            <div style={{ display: 'flex', flexDirection: 'column', lineHeight: 1.2 }}>
+              <span>92162</span>
+              <span>22123</span>
+            </div>
           </div>
           <Link to="/services" className="btn-mockup-outline nav-btn">
             <CalendarCheck size={16} />

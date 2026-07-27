@@ -7,6 +7,8 @@ import Phones from './pages/Phones';
 import PreOwned from './pages/PreOwned';
 import ServicesPage from './pages/ServicesPage';
 import Accessories from './pages/Accessories';
+import AboutUs from './pages/AboutUs';
+import Contact from './pages/Contact';
 import './App.css';
 
 // Simple component to scroll to top on route change
@@ -30,6 +32,8 @@ function App() {
           <Route path="/pre-owned" element={<PreOwned />} />
           <Route path="/services" element={<ServicesPage />} />
           <Route path="/accessories" element={<Accessories />} />
+          <Route path="/about" element={<AboutUs />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>
       <Footer />
