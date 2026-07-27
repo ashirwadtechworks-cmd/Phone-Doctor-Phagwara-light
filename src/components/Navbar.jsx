@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Phone, Moon, Sun } from 'lucide-react';
+import { Menu, X, Phone } from 'lucide-react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { useTheme } from '../context/ThemeContext';
 import './Navbar.css';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
   const { scrollY } = useScroll();
-  const { theme, toggleTheme } = useTheme();
   
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -85,23 +83,6 @@ const Navbar = () => {
 
         {/* ACTIONS */}
         <div className="nav-actions">
-          <button 
-            onClick={toggleTheme} 
-            className="theme-toggle-btn"
-            style={{ 
-              background: 'transparent', 
-              border: 'none', 
-              color: 'var(--text-primary)', 
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              padding: '8px'
-            }}
-          >
-            {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
-          </button>
-
           <div className="nav-contact">
             <Phone size={16} className="text-accent" />
             <div style={{ display: 'flex', flexDirection: 'column' }}>
