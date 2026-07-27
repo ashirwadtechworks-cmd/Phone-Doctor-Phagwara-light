@@ -29,33 +29,6 @@
   gap: 12px;
 }
 
-.logo-icon-wrapper {
-  position: relative;
-  width: 32px;
-  height: 36px;
-  background-color: var(--color-accent);
-  border-radius: 8px 8px 4px 4px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 0 15px rgba(227, 6, 19, 0.5);
-}
-
-.logo-bag-icon {
-  color: #fff;
-  margin-top: -12px;
-}
-
-.logo-phone-screen {
-  position: absolute;
-  bottom: 4px;
-  width: 16px;
-  height: 24px;
-  background: var(--bg-pure);
-  border: 1px solid rgba(255,255,255,0.8);
-  border-radius: 4px;
-}
-
 .logo-text-stack {
   display: flex;
   flex-direction: column;

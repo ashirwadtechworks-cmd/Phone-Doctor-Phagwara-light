@@ -30,9 +30,12 @@ const Footer = () => {
         <div className="footer-grid">
           
           <div className="footer-brand">
-            <Link to="/" className="logo">
-              <span className="logo-text">PHONE DOCTOR</span>
-              <span className="logo-dot">.</span>
+            <Link to="/" className="mockup-logo mb-4" style={{ display: 'inline-flex', alignItems: 'center', gap: '12px' }}>
+              <img src="/favicon.svg" alt="Phone Doctor Logo" style={{ width: '40px', height: '40px' }} />
+              <div className="logo-text-stack text-left" style={{ display: 'flex', flexDirection: 'column' }}>
+                <span className="logo-title" style={{ fontFamily: 'var(--font-heading)', fontSize: '1.25rem', fontWeight: 700, letterSpacing: '1px', lineHeight: 1 }}>PHONE <span className="text-accent">DOCTOR</span></span>
+                <span className="logo-subtitle" style={{ fontSize: '0.65rem', letterSpacing: '2px', color: 'var(--text-secondary)', marginTop: '2px' }}>PHAGWARA</span>
+              </div>
             </Link>
             <p className="footer-desc mt-4">
               Apple Authorised Store. Buy, Sell, and Repair premium smartphones and accessories.

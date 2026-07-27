@@ -21,10 +21,7 @@ const Navbar = () => {
         
         {/* LOGO */}
         <Link to="/" className="mockup-logo">
-          <div className="logo-icon-wrapper">
-            <ShoppingBag size={18} className="logo-bag-icon" />
-            <div className="logo-phone-screen"></div>
-          </div>
+          <img src="/favicon.svg" alt="Phone Doctor Logo" style={{ width: '40px', height: '40px', marginRight: '4px' }} />
           <div className="logo-text-stack">
             <span className="logo-title">PHONE <span className="text-accent">DOCTOR</span></span>
             <span className="logo-subtitle">PHAGWARA</span>
