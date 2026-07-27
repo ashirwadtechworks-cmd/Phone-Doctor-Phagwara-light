@@ -1,44 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Phone } from 'lucide-react';
+import { Menu, X, Phone, Moon, Sun } from 'lucide-react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { useTheme } from '../context/ThemeContext';
 import './Navbar.css';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
   const { scrollY } = useScroll();
+  const { theme, toggleTheme } = useTheme();
   
-  // Transform background based on scroll
-  const scrollBg = useTransform(
-    scrollY,
-    [0, 50],
-    ['rgba(0, 0, 0, 0)', 'rgba(10, 10, 10, 0.7)']
-  );
-  
-  const scrollBlur = useTransform(
-    scrollY,
-    [0, 50],
-    ['blur(0px)', 'blur(24px)']
-  );
-  
-  const scrollBorder = useTransform(
-    scrollY,
-    [0, 50],
-    ['1px solid rgba(255, 255, 255, 0)', '1px solid rgba(255, 255, 255, 0.08)']
-  );
+  const [isScrolled, setIsScrolled] = useState(false);
 
-  const scrollShadow = useTransform(
-    scrollY,
-    [0, 50],
-    ['0 0 0 rgba(0,0,0,0)', '0 10px 40px rgba(0, 0, 0, 0.5)']
-  );
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const isHome = location.pathname === '/';
-  const background = isHome ? scrollBg : 'rgba(10, 10, 10, 0.8)';
-  const backdropFilter = isHome ? scrollBlur : 'blur(24px)';
-  const border = isHome ? scrollBorder : '1px solid rgba(255, 255, 255, 0.08)';
-  const boxShadow = isHome ? scrollShadow : '0 10px 40px rgba(0, 0, 0, 0.5)';
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -54,14 +37,7 @@ const Navbar = () => {
 
   return (
     <motion.nav 
-      className="navbar"
-      style={{
-        background,
-        backdropFilter,
-        WebkitBackdropFilter: backdropFilter,
-        border,
-        boxShadow,
-      }}
+      className={`navbar ${isScrolled || !isHome ? 'scrolled' : ''} ${isHome && !isScrolled ? 'transparent' : ''}`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
@@ -111,6 +87,23 @@ const Navbar = () => {
 
         {/* ACTIONS */}
         <div className="nav-actions">
+          <button 
+            onClick={toggleTheme} 
+            className="theme-toggle-btn"
+            style={{ 
+              background: 'transparent', 
+              border: 'none', 
+              color: 'var(--text-primary)', 
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              padding: '8px'
+            }}
+          >
+            {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+          </button>
+
           <div className="nav-contact">
             <Phone size={16} className="text-accent" />
             <div style={{ display: 'flex', flexDirection: 'column' }}>

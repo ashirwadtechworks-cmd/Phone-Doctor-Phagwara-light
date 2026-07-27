@@ -5,6 +5,7 @@ import QuickActions from '../components/QuickActions';
 import ShopByCategory from '../components/ShopByCategory';
 import TopBrands from '../components/TopBrands';
 import StatsBar from '../components/StatsBar';
+import Phones from './Phones';
 
 const Home = () => {
   return (
@@ -58,6 +59,9 @@ const Home = () => {
       <QuickActions />
       <ShopByCategory />
       <TopBrands />
+      <div style={{ marginTop: '-40px' }}>
+        <Phones />
+      </div>
       <StatsBar />
     </>
   );

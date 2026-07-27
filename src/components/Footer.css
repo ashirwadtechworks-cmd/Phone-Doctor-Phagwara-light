@@ -102,12 +102,25 @@
 
 @media (max-width: 992px) {
   .footer-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 2fr 1fr 1fr;
   }
 }
 
 @media (max-width: 576px) {
   .footer-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+  }
+  .footer-desc {
+    font-size: 0.75rem;
+  }
+  .footer-title {
+    font-size: 0.9rem;
+  }
+  .footer-links a {
+    font-size: 0.75rem;
+  }
+  .footer-contact .contact-item {
+    font-size: 0.75rem;
   }
 }

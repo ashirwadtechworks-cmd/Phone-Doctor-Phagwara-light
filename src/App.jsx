@@ -9,6 +9,7 @@ import ServicesPage from './pages/ServicesPage';
 import Accessories from './pages/Accessories';
 import AboutUs from './pages/AboutUs';
 import Contact from './pages/Contact';
+import { ThemeProvider } from './context/ThemeContext';
 import './App.css';
 
 // Simple component to scroll to top on route change
@@ -45,24 +46,26 @@ const MouseGlow = () => {
 
 function App() {
   return (
-    <div className="app-container relative">
-      <div className="noise-overlay"></div>
-      <MouseGlow />
-      <ScrollToTop />
-      <Navbar />
-      <main>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/phones" element={<Phones />} />
-          <Route path="/pre-owned" element={<PreOwned />} />
-          <Route path="/services" element={<ServicesPage />} />
-          <Route path="/accessories" element={<Accessories />} />
-          <Route path="/about" element={<AboutUs />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
-      </main>
-      <Footer />
-    </div>
+    <ThemeProvider>
+      <div className="app-container relative">
+        <div className="noise-overlay"></div>
+        <MouseGlow />
+        <ScrollToTop />
+        <Navbar />
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/phones" element={<Phones />} />
+            <Route path="/pre-owned" element={<PreOwned />} />
+            <Route path="/services" element={<ServicesPage />} />
+            <Route path="/accessories" element={<Accessories />} />
+            <Route path="/about" element={<AboutUs />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </ThemeProvider>
   );
 }
 
