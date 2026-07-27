@@ -1,112 +1,37 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronRight, ShieldCheck, Award, Zap, ThumbsUp, Wrench, ArrowRight } from 'lucide-react';
-import { motion } from 'framer-motion';
-import './Hero.css';
-import heroImg from '../assets/hero_smartphones_3d.jpg';
+import { ArrowRight, Wrench } from 'lucide-react';
+import heroImg from '../assets/light_theme_hero.jpg';
 
 const Hero = () => {
   return (
-    <section className="hero">
-      {/* Background glow effects */}
-      <div className="hero-glow-left"></div>
-      <div className="hero-glow-right"></div>
-      <div className="hero-particles"></div>
-      
-      <div className="container hero-container">
+    <section style={{ backgroundColor: '#f8f9fa', padding: '60px 0', borderBottom: '1px solid #e0e0e0', marginTop: '72px' }}>
+      <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '32px' }}>
         
-        <div className="hero-content">
-          <motion.h1 
-            className="hero-title"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          >
-            YOUR TRUSTED<br />
-            <span className="text-gradient-red">SMARTPHONE</span><br />
-            DESTINATION
-          </motion.h1>
+        <div style={{ flex: '1 1 400px', maxWidth: '600px' }}>
+          <h1 style={{ fontSize: '3rem', fontWeight: 'bold', color: '#212121', lineHeight: '1.2', marginBottom: '16px' }}>
+            Buy Refurbished <br />
+            <span style={{ color: '#42C8B7' }}>Mobile Phones</span>
+          </h1>
           
-          <motion.h3 
-            className="hero-subtitle"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          >
-            Buy. Sell. Exchange. Repair.
-          </motion.h3>
+          <p style={{ fontSize: '1.125rem', color: '#4a4a4a', marginBottom: '32px' }}>
+            Get the best quality refurbished smartphones at the lowest prices. 
+            Enjoy a 6-month warranty and 15-day refund policy.
+          </p>
           
-          <motion.p 
-            className="hero-desc"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          >
-            Premium smartphones, certified pre-owned devices and genuine accessories from all leading brands.
-          </motion.p>
-          
-          <motion.div 
-            className="hero-buttons"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <Link to="/phones" className="btn btn-primary btn-animated">
-              SHOP PHONES <ArrowRight size={18} className="btn-icon-animate" />
+          <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+            <Link to="/pre-owned" className="btn-solid" style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '12px 24px', fontSize: '1rem' }}>
+              BUY NOW <ArrowRight size={18} />
             </Link>
-            <Link to="/services" className="btn btn-outline btn-animated">
+            <Link to="/services" className="btn-outline" style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '12px 24px', fontSize: '1rem', borderColor: '#42c8b7', color: '#42c8b7', backgroundColor: 'transparent' }}>
               SELL YOUR PHONE
             </Link>
-            <Link to="/services" className="btn btn-outline btn-animated">
-              BOOK REPAIR <Wrench size={16} className="ml-2" />
-            </Link>
-          </motion.div>
-          
-          <motion.div 
-            className="hero-trust-indicators"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 0.6 }}
-          >
-            <div className="trust-item">
-              <ShieldCheck size={18} className="text-accent" />
-              <span>100%<br/>Original</span>
-            </div>
-            <div className="trust-item">
-              <Award size={18} className="text-accent" />
-              <span>Certified<br/>Pre-Owned</span>
-            </div>
-            <div className="trust-item">
-              <Wrench size={18} className="text-accent" />
-              <span>Expert<br/>Repair</span>
-            </div>
-          </motion.div>
+          </div>
         </div>
         
-        <motion.div 
-          className="hero-visual"
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-        >
-          <motion.div 
-            className="hero-rings"
-            animate={{ rotate: 360 }}
-            transition={{ duration: 120, repeat: Infinity, ease: "linear" }}
-          >
-            <div className="ring ring-1"></div>
-            <div className="ring ring-2"></div>
-            <div className="ring ring-3"></div>
-          </motion.div>
-          
-          <motion.div 
-            className="hero-image-wrapper"
-            animate={{ y: [-15, 15, -15] }}
-            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          >
-            <img src={heroImg} alt="Premium Smartphones" className="hero-image3d" />
-          </motion.div>
-        </motion.div>
+        <div style={{ flex: '1 1 400px', display: 'flex', justifyContent: 'center' }}>
+          <img src={heroImg} alt="Refurbished Phones" style={{ maxWidth: '100%', height: 'auto', maxHeight: '400px', objectFit: 'contain' }} />
+        </div>
         
       </div>
     </section>

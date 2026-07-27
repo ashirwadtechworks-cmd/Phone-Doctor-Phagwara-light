@@ -20,34 +20,10 @@ const ScrollToTop = () => {
   return null;
 };
 
-// Mouse Glow Effect Component
-const MouseGlow = () => {
-  const [position, setPosition] = useState({ x: -1000, y: -1000 });
-  
-  useEffect(() => {
-    const handleMouseMove = (e) => {
-      setPosition({ x: e.clientX, y: e.clientY });
-    };
-    
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
-
-  return (
-    <div className="mouse-glow-container" style={{ opacity: position.x === -1000 ? 0 : 1 }}>
-      <div 
-        className="mouse-glow"
-        style={{ left: `${position.x}px`, top: `${position.y}px` }}
-      />
-    </div>
-  );
-};
 
 function App() {
   return (
     <div className="app-container relative">
-      <div className="noise-overlay"></div>
-      <MouseGlow />
       <ScrollToTop />
       <Navbar />
       <main>

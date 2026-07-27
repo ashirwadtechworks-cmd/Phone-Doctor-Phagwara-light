@@ -10,7 +10,7 @@ const ShopByCategory = () => {
         
         <div className="category-grid">
           
-          <Link to="/phones" className="category-card mockup-card">
+          <Link to="/phones" className="category-card">
             <div className="cat-content">
               <h3 className="cat-title">NEW<br/>SMARTPHONES</h3>
               <p className="cat-desc">Explore Latest<br/>Models</p>
@@ -23,7 +23,7 @@ const ShopByCategory = () => {
             </div>
           </Link>
           
-          <Link to="/pre-owned" className="category-card mockup-card cat-red">
+          <Link to="/pre-owned" className="category-card cat-red">
             <div className="cat-content">
               <h3 className="cat-title">CERTIFIED<br/>PRE-OWNED</h3>
               <p className="cat-desc">Like New.<br/>Better Price.</p>
@@ -36,7 +36,7 @@ const ShopByCategory = () => {
             </div>
           </Link>
           
-          <Link to="/services" className="category-card mockup-card">
+          <Link to="/services" className="category-card">
             <div className="cat-content">
               <h3 className="cat-title">BUY<br/>SELL<br/>EXCHANGE</h3>
               <p className="cat-desc">Best Value<br/>for Your Device</p>
@@ -49,7 +49,7 @@ const ShopByCategory = () => {
             </div>
           </Link>
           
-          <Link to="/services" className="category-card mockup-card">
+          <Link to="/services" className="category-card">
             <div className="cat-content">
               <h3 className="cat-title">REPAIR<br/>SERVICES</h3>
               <p className="cat-desc">Expert Care for<br/>Your Device</p>
@@ -62,7 +62,7 @@ const ShopByCategory = () => {
             </div>
           </Link>
           
-          <Link to="/accessories" className="category-card mockup-card">
+          <Link to="/accessories" className="category-card">
             <div className="cat-content">
               <h3 className="cat-title">PREMIUM<br/>ACCESSORIES</h3>
               <p className="cat-desc">Genuine Accessories<br/>for Every Need</p>

@@ -25,21 +25,20 @@ const TopBrands = () => {
   const marqueeBrands = [...brands, ...brands];
 
   return (
-    <section className="top-brands-section" style={{ padding: '120px 0', position: 'relative', overflow: 'hidden' }}>
+    <section className="top-brands-section" style={{ padding: '60px 0', position: 'relative', overflow: 'hidden', backgroundColor: '#f8f9fa' }}>
       
       {/* Subtle background glow */}
       <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '80%', height: '80%', background: 'radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 60%)', zIndex: 0, pointerEvents: 'none' }}></div>
       
       <div className="container relative z-10">
         <motion.div 
-          style={{ textAlign: 'center', marginBottom: '60px' }}
+          style={{ textAlign: 'center', marginBottom: '40px' }}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="brands-title" style={{ fontSize: '2rem', marginBottom: '16px' }}>FEATURED <span className="text-accent">BRANDS</span></h2>
-          <p className="text-secondary text-lg" style={{ maxWidth: '600px', margin: '0 auto' }}>Experience the absolute pinnacle of smartphone technology from the world's most innovative companies.</p>
+          <h2 className="brands-title" style={{ fontSize: '2rem', marginBottom: '16px', color: '#212121', fontWeight: 'bold' }}>Featured Brands</h2>
         </motion.div>
       </div>
 
@@ -66,7 +65,7 @@ const TopBrands = () => {
           {marqueeBrands.map((brand, idx) => (
             <div 
               key={idx} 
-              className="mockup-card brand-card" 
+              className="brand-card" 
               style={{ 
                 minWidth: '180px',
                 padding: '32px 24px', 
@@ -76,20 +75,20 @@ const TopBrands = () => {
                 justifyContent: 'center',
                 cursor: 'pointer',
                 '--brand-color': brand.color,
-                background: 'var(--bg-card)',
-                borderRadius: '16px',
-                border: '1px solid rgba(255, 255, 255, 0.05)',
+                background: '#fff',
+                borderRadius: '8px',
+                border: '1px solid #e0e0e0',
                 transition: 'all 0.4s ease'
               }}
             >
               <div className="brand-logo-wrapper" style={{ 
                 marginBottom: '16px', 
-                color: brand.outline ? '#fff' : 'var(--text-secondary)',
+                color: brand.color,
                 transition: 'color 0.4s ease'
               }}>
                 {brand.logo}
               </div>
-              <span style={{ fontSize: '0.875rem', fontWeight: 600, color: 'var(--text-secondary)', transition: 'color 0.4s ease' }} className="brand-name-text">{brand.name}</span>
+              <span style={{ fontSize: '0.875rem', fontWeight: 600, color: '#4a4a4a', transition: 'color 0.4s ease' }} className="brand-name-text">{brand.name}</span>
             </div>
           ))}
         </motion.div>

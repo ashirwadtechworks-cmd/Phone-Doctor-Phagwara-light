@@ -34,12 +34,7 @@ const Navbar = () => {
   }, [location]);
 
   return (
-    <motion.nav 
-      className={`navbar ${isScrolled || !isHome ? 'scrolled' : ''} ${isHome && !isScrolled ? 'transparent' : ''}`}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-    >
+    <nav className="navbar">
       <div className="container nav-container">
         
         {/* LOGO */}
@@ -91,7 +86,7 @@ const Navbar = () => {
             </div>
           </div>
           
-          <Link to="/services" className="btn-mockup-outline nav-btn" style={{ background: 'rgba(255,255,255,0.05)', backdropFilter: 'blur(10px)' }}>
+          <Link to="/services" className="btn-solid nav-btn" style={{ padding: '8px 16px', borderRadius: '4px' }}>
             BOOK REPAIR
           </Link>
 
@@ -101,7 +96,7 @@ const Navbar = () => {
         </div>
 
       </div>
-    </motion.nav>
+    </nav>
   );
 };
 
