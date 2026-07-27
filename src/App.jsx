@@ -46,6 +46,7 @@ const MouseGlow = () => {
 function App() {
   return (
     <div className="app-container relative">
+      <div className="noise-overlay"></div>
       <MouseGlow />
       <ScrollToTop />
       <Navbar />

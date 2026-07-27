@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronRight, ShieldCheck, Award, Zap, ThumbsUp, Wrench, Smartphone, ArrowRight } from 'lucide-react';
+import { ChevronRight, ShieldCheck, Award, Zap, ThumbsUp, Wrench, ArrowRight } from 'lucide-react';
+import { motion } from 'framer-motion';
 import './Hero.css';
 import heroImg from '../assets/hero_smartphones_3d.jpg';
 
@@ -15,23 +16,43 @@ const Hero = () => {
       <div className="container hero-container">
         
         <div className="hero-content">
-          <h1 className="hero-title animate-fade-in">
+          <motion.h1 
+            className="hero-title"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          >
             YOUR TRUSTED<br />
             <span className="text-gradient-red">SMARTPHONE</span><br />
             DESTINATION
-          </h1>
+          </motion.h1>
           
-          <h3 className="hero-subtitle animate-fade-in delay-1">
+          <motion.h3 
+            className="hero-subtitle"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+          >
             Buy. Sell. Exchange. Repair.
-          </h3>
+          </motion.h3>
           
-          <p className="hero-desc animate-fade-in delay-2">
+          <motion.p 
+            className="hero-desc"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          >
             Premium smartphones, certified pre-owned devices and genuine accessories from all leading brands.
-          </p>
+          </motion.p>
           
-          <div className="hero-buttons animate-fade-in delay-3">
+          <motion.div 
+            className="hero-buttons"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+          >
             <Link to="/phones" className="btn btn-primary btn-animated">
-              SHOP PHONES <ArrowRight size={16} className="btn-icon-animate" />
+              SHOP PHONES <ArrowRight size={18} className="btn-icon-animate" />
             </Link>
             <Link to="/services" className="btn btn-outline btn-animated">
               SELL YOUR PHONE
@@ -39,42 +60,53 @@ const Hero = () => {
             <Link to="/services" className="btn btn-outline btn-animated">
               BOOK REPAIR <Wrench size={16} className="ml-2" />
             </Link>
-          </div>
+          </motion.div>
           
-          <div className="hero-trust-indicators animate-fade-in delay-3">
+          <motion.div 
+            className="hero-trust-indicators"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.6 }}
+          >
             <div className="trust-item">
-              <ShieldCheck size={16} className="text-accent" />
-              <span>100%<br/>Original Products</span>
+              <ShieldCheck size={18} className="text-accent" />
+              <span>100%<br/>Original</span>
             </div>
             <div className="trust-item">
-              <Award size={16} className="text-accent" />
+              <Award size={18} className="text-accent" />
               <span>Certified<br/>Pre-Owned</span>
             </div>
             <div className="trust-item">
-              <Wrench size={16} className="text-accent" />
-              <span>Expert<br/>Technicians</span>
+              <Wrench size={18} className="text-accent" />
+              <span>Expert<br/>Repair</span>
             </div>
-            <div className="trust-item">
-              <Zap size={16} className="text-accent" />
-              <span>Fast & Reliable<br/>Service</span>
-            </div>
-            <div className="trust-item">
-              <ThumbsUp size={16} className="text-accent" />
-              <span>Best Price<br/>Guarantee</span>
-            </div>
-          </div>
+          </motion.div>
         </div>
         
-        <div className="hero-visual animate-fade-in delay-2 animate-float-slow">
-          <div className="hero-rings">
+        <motion.div 
+          className="hero-visual"
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <motion.div 
+            className="hero-rings"
+            animate={{ rotate: 360 }}
+            transition={{ duration: 120, repeat: Infinity, ease: "linear" }}
+          >
             <div className="ring ring-1"></div>
             <div className="ring ring-2"></div>
             <div className="ring ring-3"></div>
-          </div>
-          <div className="hero-image-wrapper">
+          </motion.div>
+          
+          <motion.div 
+            className="hero-image-wrapper"
+            animate={{ y: [-15, 15, -15] }}
+            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          >
             <img src={heroImg} alt="Premium Smartphones" className="hero-image3d" />
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
         
       </div>
     </section>

@@ -1,6 +1,6 @@
 .hero {
   position: relative;
-  min-height: 100vh;
+  min-height: 95vh;
   display: flex;
   align-items: center;
   padding-top: 120px;
@@ -235,14 +235,6 @@
   width: 600px;
   height: 600px;
   border-color: rgba(227, 6, 19, 0.1);
-}
-
-@keyframes spin {
-  100% { transform: translate(-50%, -50%) rotate(360deg); }
-}
-
-.animate-float-slow {
-  animation: float 8s ease-in-out infinite;
 }
 
 .hero-pedestal {

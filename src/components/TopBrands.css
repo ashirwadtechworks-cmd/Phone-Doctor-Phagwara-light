@@ -1,60 +1,10 @@
-.top-brands-section {
-  padding: 40px 0;
-  overflow: hidden;
+.brand-card:hover .brand-logo-wrapper,
+.brand-card:hover .brand-name-text {
+  color: var(--brand-color) !important;
+  text-shadow: 0 0 20px var(--brand-color);
 }
 
-.brands-title {
-  font-family: var(--font-heading);
-  font-size: 0.9rem;
-  letter-spacing: 1px;
-  margin-bottom: 24px;
-}
-
-.brands-scroll-container {
-  width: 100%;
-  overflow-x: auto;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none;  /* IE and Edge */
-}
-
-.brands-scroll-container::-webkit-scrollbar {
-  display: none; /* Chrome, Safari and Opera */
-}
-
-.brands-track {
-  display: flex;
-  align-items: center;
-  gap: 40px;
-  min-width: max-content;
-}
-
-.brand-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  opacity: 0.7;
-  transition: opacity 0.3s ease;
-  cursor: pointer;
-}
-
-.brand-item:hover {
-  opacity: 1;
-}
-
-.brand-logo {
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-}
-
-.brand-label {
-  font-size: 0.65rem;
-  color: var(--text-secondary);
-}
-
-.text-yellow-400 {
-  color: #fbbf24;
+.brand-card:hover {
+  border-color: var(--brand-color) !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 30px rgba(255, 255, 255, 0.05);
 }
