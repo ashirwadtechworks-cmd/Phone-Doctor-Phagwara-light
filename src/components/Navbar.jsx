@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ChevronDown, Phone, CalendarCheck, ShoppingBag } from 'lucide-react';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -18,20 +18,46 @@ const Navbar = () => {
   return (
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="container nav-container">
-        <Link to="/" className="logo">
-          <span className="logo-text">PHONE DOCTOR</span>
-          <span className="logo-dot">.</span>
+        
+        {/* LOGO */}
+        <Link to="/" className="mockup-logo">
+          <div className="logo-icon-wrapper">
+            <ShoppingBag size={18} className="logo-bag-icon" />
+            <div className="logo-phone-screen"></div>
+          </div>
+          <div className="logo-text-stack">
+            <span className="logo-title">PHONE <span className="text-accent">DOCTOR</span></span>
+            <span className="logo-subtitle">PHAGWARA</span>
+          </div>
         </Link>
         
+        {/* DESKTOP LINKS */}
         <div className={`nav-links ${mobileMenuOpen ? 'active' : ''}`}>
-          <Link to="/phones" className="nav-link" onClick={() => setMobileMenuOpen(false)}>Phones</Link>
-          <Link to="/pre-owned" className="nav-link" onClick={() => setMobileMenuOpen(false)}>Pre-Owned</Link>
-          <Link to="/services" className="nav-link" onClick={() => setMobileMenuOpen(false)}>Services</Link>
-          <Link to="/accessories" className="nav-link" onClick={() => setMobileMenuOpen(false)}>Accessories</Link>
+          <Link to="/" className="nav-link active" onClick={() => setMobileMenuOpen(false)}>HOME</Link>
+          <div className="nav-item-dropdown">
+            <Link to="/phones" className="nav-link" onClick={() => setMobileMenuOpen(false)}>
+              PHONES <ChevronDown size={14} className="ml-1 opacity-50" />
+            </Link>
+          </div>
+          <Link to="/pre-owned" className="nav-link" onClick={() => setMobileMenuOpen(false)}>PRE-OWNED</Link>
+          <Link to="/services" className="nav-link" onClick={() => setMobileMenuOpen(false)}>BUY SELL EXCHANGE</Link>
+          <Link to="/services" className="nav-link" onClick={() => setMobileMenuOpen(false)}>REPAIR</Link>
+          <Link to="/accessories" className="nav-link" onClick={() => setMobileMenuOpen(false)}>ACCESSORIES</Link>
+          <Link to="/about" className="nav-link" onClick={() => setMobileMenuOpen(false)}>ABOUT US</Link>
+          <Link to="/contact" className="nav-link" onClick={() => setMobileMenuOpen(false)}>CONTACT</Link>
         </div>
         
+        {/* ACTIONS */}
         <div className="nav-actions">
-          <a href="#contact" className="btn btn-primary nav-contact-btn">Contact Us</a>
+          <div className="nav-contact">
+            <Phone size={16} className="text-accent" />
+            <span>92162 22123</span>
+          </div>
+          <Link to="/services" className="btn-mockup-outline nav-btn">
+            <CalendarCheck size={16} />
+            BOOK REPAIR
+          </Link>
+          
           <button 
             className="mobile-menu-btn" 
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}

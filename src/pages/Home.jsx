@@ -1,16 +1,18 @@
 import React from 'react';
 import Hero from '../components/Hero';
-import FeaturedProducts from '../components/FeaturedProducts';
-import Services from '../components/Services';
-import WhyChooseUs from '../components/WhyChooseUs';
+import QuickActions from '../components/QuickActions';
+import ShopByCategory from '../components/ShopByCategory';
+import TopBrands from '../components/TopBrands';
+import StatsBar from '../components/StatsBar';
 
 const Home = () => {
   return (
     <>
       <Hero />
-      <FeaturedProducts />
-      <Services />
-      <WhyChooseUs />
+      <QuickActions />
+      <ShopByCategory />
+      <TopBrands />
+      <StatsBar />
     </>
   );
 };
